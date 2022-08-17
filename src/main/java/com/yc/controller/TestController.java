@@ -1,5 +1,6 @@
 package com.yc.controller;
 
+import com.common.Method.UniversalMethod;
 import com.yc.entity.Multiprimary;
 import com.yc.entity.Singleprimary;
 import com.yc.service.TestService;
@@ -9,10 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/api")
@@ -86,15 +84,7 @@ public class TestController {
 
     @GetMapping("/ExceptionTestSuccess")
     public ResponseEntity exceptionTestSuccess(){
-        return new ResponseEntity<>(generateResponseEntityBody(testService.exceptionTestSuccess(), "Success"), HttpStatus.OK);
+        return new ResponseEntity<>(UniversalMethod.generateResponseEntityBody(testService.exceptionTestSuccess(), "Success"), HttpStatus.OK);
     }
 
-    private Map<String, Object> generateResponseEntityBody(Object content, String message){
-        Map<String, Object> body = new LinkedHashMap<>();
-        body.put("timestamp", LocalDateTime.now());
-        body.put("message", message);
-        body.put("content",content);
-        body.put("status", true);
-        return body;
-    }
 }
