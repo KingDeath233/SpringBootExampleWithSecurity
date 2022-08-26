@@ -28,4 +28,9 @@ public class ExceptionHelper extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(generateResponseEntityBodyFail(e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
+    @ExceptionHandler(UserException.class)
+        public ResponseEntity handleException(UserException e){
+        return new ResponseEntity<>(generateResponseEntityBodyFail(e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
 }

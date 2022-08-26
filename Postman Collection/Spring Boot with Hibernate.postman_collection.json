@@ -342,12 +342,12 @@
 					"basic": [
 						{
 							"key": "password",
-							"value": "yechao941208",
+							"value": "123456",
 							"type": "string"
 						},
 						{
 							"key": "username",
-							"value": "yechao",
+							"value": "yechao2",
 							"type": "string"
 						}
 					]
@@ -411,13 +411,16 @@
 			"response": []
 		},
 		{
-			"name": "User Insert",
+			"name": "Register",
 			"request": {
+				"auth": {
+					"type": "noauth"
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "[\r\n    {\r\n        \"username\": \"YC\",\r\n        \"secret\": \"941208\",\r\n        \"usertype\": \"1\",\r\n        \"lastname\": \"Ye\",\r\n        \"firstname\": \"Chao\"\r\n    }\r\n]",
+					"raw": "{\r\n    \"username\": \"yechao2\",\r\n    \"password\": \"13579\",\r\n    \"usertype\": \"1\",\r\n    \"fullname\": \"lol\",\r\n    \"email\": \"test@gmail.com\",\r\n    \"phone\": \"1234567890\"\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -425,14 +428,138 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/user/UserInsert",
+					"raw": "localhost:8080/user/register",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"user",
-						"UserInsert"
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin Update User Info",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"yechao2\",\r\n    \"fullname\": \"lol\",\r\n    \"email\": \"test@gmail.com\",\r\n    \"phone\": \"1234567890\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/user/adminupdateuserinfo",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"adminupdateuserinfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Update User Info",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"yechao2\",\r\n    \"fullname\": \"lol\",\r\n    \"email\": \"test@gmail.com\",\r\n    \"phone\": \"1234567890\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/user/userupdateuserinfo",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"userupdateuserinfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change Password",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"oldpassword\": \"kkkkk\",\r\n    \"newpassword\": \"kkkkk\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/user/changepassword",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"changepassword"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reset Password",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"yechao2\",\r\n    \"password\": \"123456\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/user/resetpassword",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"resetpassword"
 					]
 				}
 			},

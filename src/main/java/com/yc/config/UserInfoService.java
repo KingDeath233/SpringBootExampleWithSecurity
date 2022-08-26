@@ -2,6 +2,7 @@ package com.yc.config;
 
 import com.yc.dao.UsersDAO;
 import com.yc.entity.Users;
+import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -22,6 +23,7 @@ public class UserInfoService implements UserDetailsService {
         this.usersDAO = usersDAO;
     }
 
+    @SneakyThrows
     @Override
     public UserDetails loadUserByUsername(String username) {
         Users activeUser = usersDAO.findByUsername(username);

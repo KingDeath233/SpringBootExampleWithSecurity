@@ -25,7 +25,10 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `usertype` int DEFAULT '0',
   `fullname` varchar(45) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `phone` varchar(15) DEFAULT NULL,
   `role` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -37,7 +40,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('yechao','$2a$10$pCebZocuXjWv7Jtu9tIEvOGXPmq163i6wBdQoTgKjKjMQ/iwgcsT2','yechao','ROLE_ADMIN, ROLE_USER');
+INSERT INTO `users` VALUES ('yechao','$2a$10$pCebZocuXjWv7Jtu9tIEvOGXPmq163i6wBdQoTgKjKjMQ/iwgcsT2',0,'yechao','yechao98@gmail.com','5145715016','ROLE_ADMIN, ROLE_USER'),('yechao2','$2a$10$Mf6VUb4LTi.Xvg9k5WhZmOiF.jj1S6RUdIyVHnZwTnRv4C/wakzdi',NULL,'lol','test@gmail.com','1234567890',NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-08-17 14:52:29
+-- Dump completed on 2022-08-26 11:25:31
